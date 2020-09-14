@@ -12,32 +12,32 @@ user_agave = float(input('Enter amount of agave nectar (in cups):\n'))
 user_serve = float(input('How many servings does this make?\n'))
 
 # printing the number input by the user of all ingredients and serving size
-print('\nLemonade ingredients - yields', user_serve, 'servings',)
-print(user_lemon, 'cup(s) lemon juice',)
-print(user_water, 'cup(s) water',)
-print(user_agave, 'cup(s) agave nectar \n')
+print('\nLemonade ingredients - yields {0:.2f} servings'.format(user_serve))
+print('{0:.2f} cup(s) lemon juice'.format(user_lemon))
+print('{0:.2f} cup(s) water'.format(user_water))
+print('{0:.2f} cup(s) agave nectar'.format(user_agave))
 # Step 2
 # user is prompt to enter a number to answer the question below of required serving
-user_serveAmt = float(input('How many servings would you like to make?\n'))
+user_serveAmt = float(input('\nHow many servings would you like to make?\n'))
 # printing
-print('\nLemonade ingredients - yields', user_serveAmt, 'servings',)
+print('\nLemonade ingredients - yields {0:.2f} servings'.format(user_serveAmt))
 serving = user_serveAmt / user_serve
 
 user_lemon = user_lemon * serving
 user_water = user_water * serving
 user_agave = user_agave * serving
 
-print(user_lemon, 'cup(s) lemon juice',)
-print(user_water, 'cup(s) water',)
-print(user_agave, 'cup(s) agave nectar,')
+print('{0:.2f} cup(s) lemon juice'.format(user_lemon))
+print('{0:.2f} cup(s) water'.format(user_water))
+print('{0:.2f} cup(s) agave nectar'.format(user_agave))
 # Step 3
 # Converting the ingredient measurements from cups to gallon
 # 16 cups in a gallon
-print('\nLemonade ingredients - yields', user_serveAmt, ' servings,')
+print('\nLemonade ingredients - yields {0:.2f} servings'.format(user_serveAmt))
 user_lemon = user_lemon / 16
 user_water = user_water / 16
 user_agave = user_agave / 16
 # printing calculations of converting cups to gallons
-print(user_lemon, 'gallon(s) lemon juice',)
-print(user_water, 'gallon(s) water',)
-print(user_agave, ' gallon(s) agave nectar')
+print('{0:.2f} gallon(s) lemon juice'.format(user_lemon))
+print('{0:.2f} gallon(s) water'.format(user_water))
+print('{0:.2f} gallon(s) agave nectar'.format(user_agave))
