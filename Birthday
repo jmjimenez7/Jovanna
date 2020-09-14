@@ -1,0 +1,30 @@
+# Jovanna Jimenez
+# 1422700
+# Birthday HW
+
+
+# User enter current date 09/14/2020
+print('Birthday Calculator\nCurrent day')
+Current_Month = int(input('Month: '))
+Current_Day = int(input('Day: '))
+Current_Year = int(input('Year: '))
+
+# User input their birthday 03/15/1996
+print('Birthday')
+Birthday_Month = int(input('Month: '))
+Birthday_Day = int(input('Day: '))
+Birthday_Year = int(input('Year: '))
+
+# Calculate - both dates 
+years = Current_Year-Birthday_Year-1
+
+# If statement 
+if Birthday_Month < Current_Month:
+    years += 1
+elif Current_Month == Birthday_Month:
+    if Birthday_Day < Current_Day:
+        years += 1
+if Current_Month == Birthday_Month and Current_Day == Birthday_Day:
+    print('Happy Birthday')
+# print the calculated of both dates to give output of age
+print('You are '+str(years)+" years old.")
