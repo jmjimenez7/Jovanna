@@ -1,0 +1,20 @@
+# JOVANNA JIMENEZ
+# 1422700
+# HW 1.20 ZyBook
+
+user_num = int(input("Enter integer:\n"))  # Enter number
+
+
+print("You entered:", user_num)  # printing number inputed
+
+print(user_num, "squared is", user_num * user_num)  # printing squared of number inputed
+
+print("And", user_num, "cubed is", user_num * user_num * user_num, "!!")  # printing cubed of number inputed
+
+# enter another number
+user_num2 = int(input("Enter another integer:\n"))
+
+
+# print the equation of the first number and second number entered for + and *
+print(user_num, "+", user_num2, "is", user_num + user_num2)
+print(user_num, "*", user_num2, "is", user_num * user_num2)
