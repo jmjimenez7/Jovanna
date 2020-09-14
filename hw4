@@ -1,0 +1,28 @@
+# Jovanna Jimenez
+# 1422700
+# ZYBook 3.18
+
+# Step 1  User input wall height and width to calculate the output of area
+
+wall_height = float(input('Enter wall height (feet):\n'))
+wall_width = float(input('Enter wall width (feet):\n'))
+wall_area = int(wall_height * wall_width)
+print('Wall area:', wall_area, 'square feet')
+
+# Step 2 Calculate paint needed by 350 square feet
+# printing paint needed in gallons
+paint_needed = wall_area / 350
+print('Paint needed: {0:.2f} gallons'.format(paint_needed))
+
+# Step 3
+# printing Cans needed
+cans_needed = round(paint_needed)
+print('Cans needed:', cans_needed, 'can(s)\n')
+
+# Step 4
+# dictionary for paint color and insert cost
+# print cost of purchasing and color seclected with price
+color = input('Choose a color to paint the wall:\n')
+paint_color = {'red': 35, 'blue': 25, 'green': 23}
+paint_cost = cans_needed * paint_color[color.lower()]
+print('Cost of purchasing', color, 'paint: $'+str(paint_cost))
