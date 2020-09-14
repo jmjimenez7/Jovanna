@@ -1,8 +1,10 @@
 #JOVANNA JIMENEZ
-# 1422700
+#1422700
+#HW 1.12 ZyBook
 
-#User input 
 userNum = int(input())
 userNumSquared = userNum * userNum # Bug here; fix it when instructed
+# Changed (+) to (*) 
 
 print(userNumSquared) # Output formatting issue here; fix it when instructed
+# Changed from print(userNumSquared, end=' ') to the print(userNumSquared) 
