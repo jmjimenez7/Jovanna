@@ -1,0 +1,24 @@
+# Jovanna Jimenez
+# 1422700
+
+
+# if and elif statement
+simplepassword=input()
+password =''
+for x in simplepassword:
+    if(x=='i'):
+        password+="!"     # change i to !
+    elif(x=='a'):
+        password+="@"     # change a to @
+    elif(x=='m'):
+        password+="M"     # change m to M
+    elif(x=='B'):
+        password+="8"     # change B to 8
+    elif(x=='o'):
+        password+="."     # change o to .
+    else:
+        password+= x
+# if the password doesn't have i,a,m,B,o to print the orginal password
+password+="q*s"
+# q*s after new stronger password
+print(password)           # prints the stronger password
