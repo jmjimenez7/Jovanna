@@ -1,0 +1,28 @@
+# Jovanna Jimenez
+# 1422700
+
+#enter number for every variable 
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+e = int(input())
+f = int(input())
+
+solution_found = False
+
+# For every value of x from -10 to 10.
+for x in range(-10, 11):
+# For every value of y from -10 to 10.
+    for y in range(-10, 11):
+        if ((a * x) + (b * y) == c) and ((d * x) + (e * y) == f):
+            # Print the solution. # if statement 
+            print(x, y)
+            solution_found = True
+            # Break out of the loop.
+            break
+
+# If no solution is found  for the equation then, print the required message " No Solution"   
+
+if not solution_found:
+    print("No solution")
