@@ -1,0 +1,26 @@
+# Jovanna Jimenez
+# 1422700
+
+# 8.10 Zybook Lab
+
+x = input()  # Enter a string
+forward = 0  # starting at 0
+backward = len(x)-1   # lenght of string input
+result = True
+# While / If else statement for code reading the string forward and reversed
+while (forward<backward):
+    if(x[forward] ==' '):
+        forward+=1
+    elif(x[backward] ==' '):
+        backward-=1
+    elif(x[forward]!=x[backward]):
+        result = False
+        break
+    else:
+        forward+=1
+        backward-=1
+# print string is a palindrome or is not a palindrome
+if (result):
+    print(x, "is a palindrome")
+else:
+    print(x, "is not a palindrome")
