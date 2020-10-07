@@ -1,0 +1,53 @@
+# Jovanna Jimenez
+# 1422700
+
+# define the exact change for quarters, dimes, nickels and pennies out of 100
+# values of each coin
+def exact_change(user_total):
+    dollars = user_total // 100  # dollars
+    user_total %= 100
+    quarters = user_total // 25  # quarters
+    user_total %= 25
+    dimes = user_total // 10     # dimes
+    user_total %= 10
+    nickels = user_total // 5     # nickels
+    user_total %= 5
+    pennies = user_total   # pennies (penny for less than 1)
+    return dollars, quarters, dimes, nickels, pennies
+# return value of user_total
+
+# define main
+def main():
+    input_num = int(input()) # input number of user total
+    num_dollars, num_quarters, num_dimes, num_nickels, num_pennies = exact_change(input_num)
+    if input_num <= 0:   # if enter 0 pint no change
+        print('no change')
+    else:
+        if num_dollars > 1:  # if greater than one dollar print dollars
+            print('%d dollars' % num_dollars)
+        elif num_dollars == 1:    # if equal to one dollar print dollar
+            print('%d dollar' % num_dollars)
+
+        if num_quarters > 1:       # if more than one quarter print quarters
+            print('%d quarters' % num_quarters)
+        elif num_quarters == 1:         # if equal to one print quarter
+            print('%d quarter' % num_quarters)
+
+        if num_dimes > 1:        # if more than one dime print dimes
+            print('%d dimes' % num_dimes)
+        elif num_dimes == 1:           # if equal to one dime print dime
+            print('%d dime' % num_dimes)
+
+        if num_nickels > 1:     # if more than one nickel print nickels
+            print('%d nickels' % num_nickels)
+        elif num_nickels == 1:    # if equal to one nickel print nickel
+            print('%d nickel' % num_nickels)
+
+        if num_pennies > 1:     # if more than one penny print pennies
+            print('%d pennies' % num_pennies)
+        elif num_pennies == 1:  # if equal to one penny print penny
+            print('%d penny' % num_pennies)
+
+
+if __name__ == '__main__':
+    main()
