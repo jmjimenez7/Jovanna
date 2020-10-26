@@ -14,10 +14,10 @@ class FoodItem:
         return calories
 # print 
     def print_info(self):
-        print('Nutritional information per sarving of {}:'.format(self.name))
-        print('     Fat: {:.2f} g'.format(self.fat))
-        print('     Carbohydrates: {:.2f} g'.format(self.carbs))
-        print('     Protein: {:.2f} g'.format(self.protein))
+        print('Nutritional information per serving of {}:'.format(self.name))
+        print('Fat: {:.2f} g'.format(self.fat))
+        print('Carbohydrates: {:.2f} g'.format(self.carbs))
+        print('Protein: {:.2f} g'.format(self.protein))
 
 # if statement 
 
