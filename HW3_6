@@ -1,2 +1,17 @@
 # Jovanna Jimenez
 # 1472200
+
+
+# For divding each input in list
+wordlist = list(input().split(" "))
+
+# list to count words frequency
+wordfreq = []
+
+# For count frequency of each word
+for w in wordlist:
+    wordfreq.append(wordlist.count(w))
+
+# To print output
+for i in range(len(wordlist)):
+    print(wordlist[i], wordfreq[i])
