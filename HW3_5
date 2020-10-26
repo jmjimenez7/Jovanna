@@ -1,0 +1,17 @@
+# Jovanna Jimenez
+# 1472200
+
+# list of strings
+integers = input().split()
+# list of non neg int
+non_neg_int=[]
+
+# Use for loop 
+for num in integers:
+    num = int(num)
+    if num >= 0:
+        non_neg_int.append(num)
+        non_neg_int.sort()
+# Use for loop to print sort list 
+for i in non_neg_int:
+    print(i, end=' ')
