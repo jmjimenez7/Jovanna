@@ -1,1 +1,29 @@
 Jovanna Jimenez
+ID : 1422700
+
+def get_age():
+    age = int(input())
+
+    if age < 18 or age > 75:  # if age is greater than 18 but less than 75
+        raise ValueError("Invalid age.")  # If age is not valid, raise exception, invalid age
+    return age  # If age is valid, return age
+
+# calculate fat-burning heart rate
+def fat_burning_heart_rate(age):
+    heart_rate = 220 - age  # calculate 70% of 220 minus age
+    heart_rate *= 0.7 # convert 70% to dec.
+    return heart_rate  # return heart rate
+
+if __name__ == "__main__":
+    try:  # try block of statements
+        age = get_age()
+        rate = fat_burning_heart_rate(age)  # call method to calculate heart rate
+        # print 'Fat burning rate for a __ year-old
+        print("Fat burning heart rate for a",age,"year-old: ", end="")
+        # print rate calculate, bpm
+        print(rate, "bpm")
+
+    except ValueError as exception:
+# If exception occurs, handle them with printing could not calculate heart rate info 
+        print(exception)
+        print("Could not calculate heart rate info."'\n')
