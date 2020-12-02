@@ -14,13 +14,15 @@ LABELED AS HW3_
 
 
 
-# JOVANNA JIMENEZ
+# Jovanna Jimenez
+# 1422700
+
   HOMEWORK 4
   ZYBOOK 
 
   12.7  COMPLETED
   12.9   COMPLETED 
   14.11  COMPLETED
-  14.13  COMPLETED
+  14.13  COMPLETED * having issues with the partition
   
 LABELED AS HW4_
