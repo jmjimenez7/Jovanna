@@ -1,10 +1,10 @@
 # Jovanna Jimenez
 # 1422700
 
-# import csv
 import csv
 import operator
 from datetime import datetime
+
 
 # create an item
 class Item:
@@ -42,7 +42,6 @@ with open('ServiceDatesList.csv') as newFile:
         if i != "":
             items[i].sDate = datetime.strptime(s, "%m/%d/%Y")
 
-
 # Full Inventory Sorted By manufacturer.
 with open('FullInventory.csv', mode='w') as manufacturer_file:
     item_writer = csv.writer(manufacturer_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -67,8 +66,7 @@ with open('DamagedInventory.csv', mode='w') as damagedinv_file:
             item_writer.writerow(
                 [key, items[key].mName, items[key].itemType, items[key].price, items[key].sDate, items[key].damaged])
 
-
-# Full Inventory Sorted By type and exported by type.
+# Full Inventory Sorted By type and exported by type. We also will account for the different manufacturers
 types = {}
 typesAndItemIds = []
 manufacturers = []
@@ -96,17 +94,18 @@ for key in types:
 # Prompt the user for input
 user_input = None
 while user_input != 'q':
-    # user input for manufactuer and item
-    # enter q for quiting the program
-    user_input = input("\n Please enter an item manufacturer and item type (ex: Apple phone) or enter 'q' to quit:\n")
+    user_input = input("\n Please enter an item manufacturer and item type (ex: Apple laptop) or enter 'q' to quit:\n")
     if user_input == 'q':
         print("Exiting Program...")
         break
     else:
-        selected_manufacturer =''
+        selected_manufacturer = ''
         selected_type = ''
         user_input_split = user_input.split()
         bad_input = False
+        # If a work inputed by a user falls in our manufacturers list or out type list we want to store these values
+        # we will flag an error if either a type or manufacturer is given multiple values
+        # or if either one is empty.
         for word in user_input_split:
             if word.upper() in map(str.upper, manufacturers):
                 if selected_manufacturer != '':
@@ -118,25 +117,27 @@ while user_input != 'q':
                     bad_input = True
                 else:
                     selected_type = word.upper()
+
         if selected_manufacturer == '' or selected_type == '':
             bad_input = True
-        print(selected_manufacturer)
-        print(selected_type)
-        print(bad_input)
         if bad_input == True:
             print("No such item in inventory")
         else:
+            # we will create an array which will store matching and similar items if found
             matching_items = []
             similar_items = []
+            # Check our stored list of parts by itemtype. WE do this by passing in the selectedtype we found from our user
             for word in typesAndItemIds[types[selected_type]]:
                 # Don't add damaged items or past service to matched list or similar list
                 today = datetime.now()
                 expired = items[word].sDate < today
+                # check if the item is the same manufactuerer as searched by the user
+                # if so, add this to matching, if not add it to the similar list.
                 if items[word].mName.strip().upper() == selected_manufacturer.strip().upper():
-                    if expired == False:
+                    if expired == False and items[word].damaged != 'damaged':
                         matching_items.append(items[word].ID)
                 else:
-                    if expired == False:
+                    if expired == False and items[word].damaged != 'damaged':
                         similar_items.append(items[word].ID)
             totalPrice = 0
             numItems = 0
@@ -144,18 +145,21 @@ while user_input != 'q':
             matchedPrice = 0
             matchedDiference = 0
             closestitem = ''
+            # if our matching list contains items
             if len(matching_items) > 0:
-                # Output the item if matched
+                # Output the item if matched and adjust the total price and number of matched items to determine an average cost
                 for word in matching_items:
                     totalPrice += int(items[word].price)
                     numItems += 1
-                    print("Your item is: {0}, {1}, {2}, {3}\n".format(items[word].ID, items[word].mName, items[word].itemType, items[word].price))
+                    print("Your item is: {0}, {1}, {2}, {3}\n".format(items[word].ID, items[word].mName,
+                                                                      items[word].itemType, items[word].price))
                 averagePrice = totalPrice / numItems
                 matchedPrice = 0
                 matchedDiference = averagePrice * 2
             else:
                 print("No items were found that were not past their service date\n")
             # Output item from different manufacturer that is closest in price to matched item
+            # we proceed if similar_items array contains items
             if len(similar_items) > 0:
                 lowestMatchPrice = 0;
                 for word in similar_items:
@@ -166,15 +170,18 @@ while user_input != 'q':
                             matchedDiference = abs(averagePrice - matchedPrice);
                             closestitem = word
                     else:
+                        # if there was no matching parts we ge to this section and can still find similar results
+                        # we will display the lowest cost item.
                         if lowestMatchPrice == 0:
                             lowestMatchPrice = matchedPrice
                             closestitem = items[word].ID
                         if lowestMatchPrice < matchedPrice:
                             lowestMatchPrice = matchedPrice
                             closestitem = items[word].ID
-            # print you may, also consider item
                 if closestitem != '':
-                    print("You may, also, consider: {0}, {1}, {2}, {3}\n".format(items[closestitem].ID, items[closestitem].mName, items[closestitem].itemType, items[closestitem].price))
+                    print("You may, also, consider: {0}, {1}, {2}, {3}\n".format(items[closestitem].ID,
+                                                                                 items[closestitem].mName,
+                                                                                 items[closestitem].itemType,
+                                                                                 items[closestitem].price))
             else:
-            # print no similar item in inventory
                 print("No similar items in inventory")
